@@ -76,10 +76,10 @@ public class JugadorController {
         try {
             Jugador equipoEntity = jugadorService.guardarJugador(equipo);
             if (equipoEntity != null) {
-                CustomResponseJugador<Jugador> response = new CustomResponseJugador<>(1, "Jugadors creado", equipoEntity, links);
+                CustomResponseJugador<Jugador> response = new CustomResponseJugador<>(1, "Jugador creado", equipoEntity, links);
                 return ResponseEntity.status(HttpStatus.CREATED).body(response);
             } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseJugador<>(6, "Jugadors no encontrados", equipoEntity, links));
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseJugador<>(6, "Jugador no encontrado", equipoEntity, links));
             }
         } catch (Exception e) {
             CustomResponseJugador<Jugador> response = new CustomResponseJugador<>(8, "Error interno de servidor", null, links);

@@ -36,10 +36,10 @@ public class LigaController {
         try {
             ligas = ligaService.obtenerTodos();
             if (!ligas.isEmpty()) {
-                CustomResponseLiga<List<Liga>> response = new CustomResponseLiga<>(1, "Ligas encontrados", ligas, links);
+                CustomResponseLiga<List<Liga>> response = new CustomResponseLiga<>(1, "Ligas encontradas", ligas, links);
                 return ResponseEntity.status(HttpStatus.OK).body(response);
             } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseLiga<>(6, "Ligas no encontrados", ligas, links));
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseLiga<>(6, "Ligas no encontradas", ligas, links));
             }
         } catch (Exception e) {
             CustomResponseLiga<List<Liga>> response = new CustomResponseLiga<>(8, "Error interno de servidor", ligas, links);
@@ -56,10 +56,10 @@ public class LigaController {
         try {
             liga = ligaService.obtenerLigaPorId(id);
             if (liga.isPresent()) {
-                response = new CustomResponseLiga<>(1, "Liga encontrado", liga.get(), links);
+                response = new CustomResponseLiga<>(1, "Liga encontrada", liga.get(), links);
                 return ResponseEntity.status(HttpStatus.OK).body(response);
             } else {
-                response = new CustomResponseLiga<>(0, "Liga no encontrado", null, links);
+                response = new CustomResponseLiga<>(0, "Liga no encontrada", null, links);
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
         } catch (Exception e) {
@@ -76,14 +76,13 @@ public class LigaController {
         try {
             Liga ligaEntity = ligaService.guardarLiga(liga);
             if (ligaEntity != null) {
-                CustomResponseLiga<Liga> response = new CustomResponseLiga<>(1, "Ligas creado", ligaEntity, links);
+                CustomResponseLiga<Liga> response = new CustomResponseLiga<>(1, "Liga creada", ligaEntity, links);
                 return ResponseEntity.status(HttpStatus.CREATED).body(response);
             } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseLiga<>(6, "Ligas no encontrados", ligaEntity, links));
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseLiga<>(6, "Liga no encontrada", ligaEntity, links));
             }
         } catch (Exception e) {
             CustomResponseLiga<Liga> response = new CustomResponseLiga<>(8, "Error interno de servidor", null, links);
-            System.out.println("Error en Post Liga: "+e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
@@ -100,10 +99,10 @@ public class LigaController {
             liga = ligaService.obtenerLigaPorId(id);
             if (liga.isPresent()) {
                 ligaService.deleteLiga(id);
-                response = new CustomResponseLiga<>(1, "Liga eliminado", null, links);
+                response = new CustomResponseLiga<>(1, "Liga eliminada", null, links);
                 return ResponseEntity.status(HttpStatus.OK).body(response);
             } else {
-                response = new CustomResponseLiga<>(0, "Liga no encontrado", null, links);
+                response = new CustomResponseLiga<>(0, "Liga no encontrada", null, links);
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
         } catch (Exception e) {
@@ -120,10 +119,10 @@ public class LigaController {
             liga.setId(id);
             if (ligaService.obtenerLigaPorId(id).isPresent()) {
                 Liga ligaEntity = ligaService.actualizarEquipo(liga);
-                CustomResponseLiga<Liga> response = new CustomResponseLiga<>(1, "Liga actualizado", ligaEntity, links);
+                CustomResponseLiga<Liga> response = new CustomResponseLiga<>(1, "Liga actualizada", ligaEntity, links);
                 return ResponseEntity.status(HttpStatus.OK).body(response);
             }else{
-                CustomResponseLiga<Liga> response = new CustomResponseLiga<>(0, "Liga no encontrado", null, links);
+                CustomResponseLiga<Liga> response = new CustomResponseLiga<>(0, "Liga no encontrada", null, links);
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
         }catch (Exception e) {

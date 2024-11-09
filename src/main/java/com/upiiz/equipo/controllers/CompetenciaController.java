@@ -34,14 +34,13 @@ public class CompetenciaController {
         try {
             competencias = competenciaService.obtenerTodos();
             if (!competencias.isEmpty()) {
-                CustomResponseCompetencia<List<Competencia>> response = new CustomResponseCompetencia<>(1, "Competencias encontrados", competencias, links);
+                CustomResponseCompetencia<List<Competencia>> response = new CustomResponseCompetencia<>(1, "Competencias encontradas", competencias, links);
                 return ResponseEntity.status(HttpStatus.OK).body(response);
             } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseCompetencia<>(6, "Competencias no encontrados", competencias, links));
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseCompetencia<>(6, "Competencias no encontradas", competencias, links));
             }
         } catch (Exception e) {
             CustomResponseCompetencia<List<Competencia>> response = new CustomResponseCompetencia<>(8, "Error interno de servidor", competencias, links);
-            System.out.println(e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
@@ -56,10 +55,10 @@ public class CompetenciaController {
         try {
             competencias = competenciaService.obtenerCompetenciaPorId(id);
             if (competencias.isPresent()) {
-                response = new CustomResponseCompetencia<>(1, "Competencia encontrado", competencias.get(), links);
+                response = new CustomResponseCompetencia<>(1, "Competencia encontrada", competencias.get(), links);
                 return ResponseEntity.status(HttpStatus.OK).body(response);
             } else {
-                response = new CustomResponseCompetencia<>(0, "Competencia no encontrado", null, links);
+                response = new CustomResponseCompetencia<>(0, "Competencia no encontrada", null, links);
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
         } catch (Exception e) {
@@ -76,14 +75,13 @@ public class CompetenciaController {
         try {
             Competencia competenciasEntity = competenciaService.guardarCompetencia(competencias);
             if (competenciasEntity != null) {
-                CustomResponseCompetencia<Competencia> response = new CustomResponseCompetencia<>(1, "Competencias creado", competenciasEntity, links);
+                CustomResponseCompetencia<Competencia> response = new CustomResponseCompetencia<>(1, "Competencia creada", competenciasEntity, links);
                 return ResponseEntity.status(HttpStatus.CREATED).body(response);
             } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseCompetencia<>(6, "Competencias no encontrados", competenciasEntity, links));
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseCompetencia<>(6, "Competencia no encontrada", competenciasEntity, links));
             }
         } catch (Exception e) {
             CustomResponseCompetencia<Competencia> response = new CustomResponseCompetencia<>(8, "Error interno de servidor", null, links);
-            System.out.println("Error en Post Competencia: "+e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
@@ -100,10 +98,10 @@ public class CompetenciaController {
             competencias = competenciaService.obtenerCompetenciaPorId(id);
             if (competencias.isPresent()) {
                 competenciaService.deleteCompetencia(id);
-                response = new CustomResponseCompetencia<>(1, "Competencia eliminado", null, links);
+                response = new CustomResponseCompetencia<>(1, "Competencia eliminada", null, links);
                 return ResponseEntity.status(HttpStatus.OK).body(response);
             } else {
-                response = new CustomResponseCompetencia<>(0, "Competencia no encontrado", null, links);
+                response = new CustomResponseCompetencia<>(0, "Competencia no encontrada", null, links);
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
         } catch (Exception e) {
@@ -121,10 +119,10 @@ public class CompetenciaController {
             competencias.setId(id);
             if (competenciaService.obtenerCompetenciaPorId(id).isPresent()) {
                 Competencia competenciasEntity = competenciaService.actualizarCompetencia(competencias);
-                CustomResponseCompetencia<Competencia> response = new CustomResponseCompetencia<>(1, "Competencia actualizado", competenciasEntity, links);
+                CustomResponseCompetencia<Competencia> response = new CustomResponseCompetencia<>(1, "Competencia actualizada", competenciasEntity, links);
                 return ResponseEntity.status(HttpStatus.OK).body(response);
             }else{
-                CustomResponseCompetencia<Competencia> response = new CustomResponseCompetencia<>(0, "Competencia no encontrado", null, links);
+                CustomResponseCompetencia<Competencia> response = new CustomResponseCompetencia<>(0, "Competencia no encontrada", null, links);
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
         }catch (Exception e) {

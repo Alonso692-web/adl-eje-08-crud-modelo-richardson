@@ -41,7 +41,6 @@ public class EquipoController {
             }
         } catch (Exception e) {
             CustomResponseEquipo<List<Equipo>> response = new CustomResponseEquipo<>(8, "Error interno de servidor", equipos, links);
-            System.out.println(e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
@@ -76,14 +75,13 @@ public class EquipoController {
         try {
             Equipo equipoEntity = equipoService.guardarEquipo(equipo);
             if (equipoEntity != null) {
-                CustomResponseEquipo<Equipo> response = new CustomResponseEquipo<>(1, "Equipos creado", equipoEntity, links);
+                CustomResponseEquipo<Equipo> response = new CustomResponseEquipo<>(1, "Equipo creado", equipoEntity, links);
                 return ResponseEntity.status(HttpStatus.CREATED).body(response);
             } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseEquipo<>(6, "Equipos no encontrados", equipoEntity, links));
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseEquipo<>(6, "Equipo no encontrado", equipoEntity, links));
             }
         } catch (Exception e) {
             CustomResponseEquipo<Equipo> response = new CustomResponseEquipo<>(8, "Error interno de servidor", null, links);
-            System.out.println("Error en Post Equipo: "+e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }

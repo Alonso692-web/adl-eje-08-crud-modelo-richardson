@@ -8,13 +8,11 @@ import io.swagger.v3.oas.annotations.servers.Server;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.context.annotation.Configuration;
 
-// Clase de configuracion
 @Configuration
-// Personalizar la documentación de nuestra api
 @OpenAPIDefinition(
         info = @Info(
-                title = "API de Equipo",
-                description = "Esta API proporciona acceso a los recursos de la API de un Equipo",
+                title = "API de Futbol",
+                description = "Esta API proporciona acceso a los recursos de la API de un Equipo de Futbol",
                 version = "1.0.0",
                 contact = @Contact(
                         name = "Alonso Dominguez Lopez",
@@ -22,18 +20,16 @@ import org.springframework.context.annotation.Configuration;
                         url = "http://localhost:8081/contacto"
                 ),
                 license = @License(),
-                termsOfService = "Solo permiten 400 solicitudes diarias"
+                termsOfService = "Este programa es publico ajeno a cualquier partido político"
         ),
         servers = {
                 @Server(
                         description = "Servidor de pruebas",
                         url = "http://localhost:8081"
-                        // url = "http://pruebas.com:8081"
                 ),
                 @Server(
                         description = "Servidor de Produccion",
                         url = "https://adl-eje-08-crud-modelo-richardson.onrender.com"
-                        // url = "http://localhost:8081/api/v1/equipo"
                 )
         },
         tags = {
@@ -55,7 +51,7 @@ import org.springframework.context.annotation.Configuration;
                 ),
                 @Tag(
                         name = "Competencias",
-                        description = "Endpoints para los recursos de las competencia"
+                        description = "Endpoints para los recursos de las competencias"
                 )
         }
 )

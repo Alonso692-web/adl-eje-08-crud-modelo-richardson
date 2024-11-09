@@ -1,9 +1,7 @@
 package com.upiiz.equipo.controllers;
 
 import com.upiiz.equipo.entities.Entrenador;
-import com.upiiz.equipo.entities.Equipo;
 import com.upiiz.equipo.responses.CustomResponseEntrenador;
-import com.upiiz.equipo.responses.CustomResponseEquipo;
 import com.upiiz.equipo.services.EntrenadorService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +57,7 @@ public class EntrenadorController {
                 CustomResponseEntrenador<Entrenador> response = new CustomResponseEntrenador<>(1, "Entrenador creado", entrenadorEntity, links);
                 return ResponseEntity.status(HttpStatus.CREATED).body(response);
             } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseEntrenador<>(6, "Entrenador no encontrados", entrenadorEntity, links));
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new CustomResponseEntrenador<>(6, "Entrenador no encontrado", entrenadorEntity, links));
             }
         } catch (Exception e) {
             CustomResponseEntrenador<Entrenador> response = new CustomResponseEntrenador<>(8, "Error interno de servidor", null, links);
