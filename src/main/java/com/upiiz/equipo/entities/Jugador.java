@@ -19,10 +19,8 @@ public class Jugador {
     private Long id;
     @NotBlank
     private String nombre;
-    @NotBlank
     private String nacionalidad;
     private int edad;
-    @NotBlank
     private String posicion;
 
     @ManyToOne

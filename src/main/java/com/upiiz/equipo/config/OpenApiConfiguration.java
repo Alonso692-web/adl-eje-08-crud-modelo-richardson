@@ -27,12 +27,12 @@ import org.springframework.context.annotation.Configuration;
         servers = {
                 @Server(
                         description = "Servidor de pruebas",
-                        url = "http://localhost:8081/"
+                        url = "http://localhost:8081"
                         // url = "http://pruebas.com:8081"
                 ),
                 @Server(
                         description = "Servidor de Produccion",
-                        url = "https://adl-eje-08-crud-modelo-richardson.onrender.com/"
+                        url = "https://adl-eje-08-crud-modelo-richardson.onrender.com"
                         // url = "http://localhost:8081/api/v1/equipo"
                 )
         },

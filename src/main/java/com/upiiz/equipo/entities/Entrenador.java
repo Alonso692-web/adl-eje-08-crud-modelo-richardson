@@ -19,7 +19,6 @@ public class Entrenador {
     private Long id;
     @NotBlank
     private String nombre;
-    @NotBlank
     private String nacionalidad;
     private int edad;
 

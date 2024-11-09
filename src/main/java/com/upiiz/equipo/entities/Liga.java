@@ -21,9 +21,7 @@ public class Liga {
     private Long id;
     @NotBlank
     private String nombre;
-    @NotBlank
     private String pais;
-    @NotBlank
     private String presidente;
 
     @OneToMany(mappedBy = "liga")
