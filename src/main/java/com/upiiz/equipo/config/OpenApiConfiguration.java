@@ -32,7 +32,7 @@ import org.springframework.context.annotation.Configuration;
                 ),
                 @Server(
                         description = "Servidor de Produccion",
-                        url = "http://pruebas.com:8081"
+                        url = "https://adl-eje-08-crud-modelo-richardson.onrender.com/"
                         // url = "http://localhost:8081/api/v1/equipo"
                 )
         },
