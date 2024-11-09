@@ -3,6 +3,7 @@ package com.upiiz.equipo.controllers;
 import com.upiiz.equipo.entities.Competencia;
 import com.upiiz.equipo.responses.CustomResponseCompetencia;
 import com.upiiz.equipo.services.CompetenciaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,9 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 @RestController
 @RequestMapping("/api/v1/competencias")
+@Tag(
+        name = "Competencias"
+)
 public class CompetenciaController {
 
     @Autowired

@@ -5,6 +5,7 @@ import com.upiiz.equipo.entities.Liga;
 import com.upiiz.equipo.responses.CustomResponseLiga;
 import com.upiiz.equipo.responses.CustomResponseLiga;
 import com.upiiz.equipo.services.LigaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,9 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 @RestController
 @RequestMapping("/api/v1/liga")
+@Tag(
+        name = "Liga"
+)
 public class LigaController {
 
     @Autowired
