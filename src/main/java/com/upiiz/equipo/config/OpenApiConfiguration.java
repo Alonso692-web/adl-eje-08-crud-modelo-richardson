@@ -43,7 +43,19 @@ import org.springframework.context.annotation.Configuration;
                 ),
                 @Tag(
                         name = "Jugadores",
-                        description = "Endpoints para loss recursos de jugadores"
+                        description = "Endpoints para los recursos de jugadores"
+                ),
+                @Tag(
+                        name = "Entrenadores",
+                        description = "Endpoints para los recursos del entrenador"
+                ),
+                @Tag(
+                        name = "Liga",
+                        description = "Endpoints para los recursos de la liga"
+                ),
+                @Tag(
+                        name = "Competencias",
+                        description = "Endpoints para los recursos de las competencia"
                 )
         }
 )
